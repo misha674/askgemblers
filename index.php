@@ -5,20 +5,20 @@ $langArray = array("pt","ru","de","en","br", "fr", 'el');
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
 // проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
-if(isset($_GET['lang']) || array_search($_GET['lang'], $langArray)):
+if(isset($_GET['lang']) && array_search($_GET['lang'], $langArray)):
   // задаем язык сайту
   $activeLang = $_GET['lang'];
   // устанавливаем куку с языком сайта
   setcookie ("lang_site", $activeLang, time() + 3600*24*30, "/"); 
 // проверяем наличие в cookie значения языка и присутствует ли он в массиве возможных языков, если есть то используем ее
-elseif (isset($_COOKIE['lang_site']) || array_search($_COOKIE['lang_site'], $langArray)): 
+elseif (isset($_COOKIE['lang_site']) && array_search($_COOKIE['lang_site'], $langArray)): 
  // получем язык сайта из куки
   $activeLang = $_COOKIE['lang_site'];
-elseif($langDevice || array_search($langDevice, $langArray)): // если cookie и url пустые - применяем язык устроства
+elseif($langDevice && array_search($langDevice, $langArray)): // если cookie и url пустые - применяем язык устроства
   $activeLang = $langDevice;
 else:
   // default значение для языка сайта
-  $activeLang = en; 
+  $activeLang = 'en'; 
 endif;
 
 echo $activeLang;
