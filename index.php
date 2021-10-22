@@ -1,24 +1,27 @@
 <?php 
 // Массив доступных для выбора языков
-$LangArray = array("pt","ru","de","en","br", "fr", 'el');
+$langArray = array("pt","ru","de","en","br", "fr", 'el');
 // Получаея язык устройста и применяем его на случай если в coockie не прописано
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
-// проверяем, если был передан язык в урле, то записываем его в куку
-if(isset($_GET['lang'])){
+// проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
+if(isset($_GET['lang']) || array_search($_GET['lang'], $langArray)):
   // задаем язык сайту
   $activeLang = $_GET['lang'];
   // устанавливаем куку с языком сайта
   setcookie ("lang_site", $activeLang, time() + 3600*24*30, "/"); 
-} else if (isset($_COOKIE['lang_site'])){ // проверяем наличие куки, если есть то читаем ее
+// проверяем наличие в cookie значения языка и присутствует ли он в массиве возможных языков, если есть то используем ее
+elseif (isset($_COOKIE['lang_site']) || array_search($_COOKIE['lang_site'], $langArray)): 
  // получем язык сайта из куки
   $activeLang = $_COOKIE['lang_site'];
-} else if($langDevice) { // если cookie и url пустые - применяем язык устроства
+elseif($langDevice || array_search($langDevice, $langArray)): // если cookie и url пустые - применяем язык устроства
   $activeLang = $langDevice;
-} else {
+else:
   // default значение для языка сайта
-  $activeLang = 'en'; 
-}
+  $activeLang = en; 
+endif;
+
+echo $activeLang;
 
 include_once ("languages/lang-".$activeLang.".php");
 
@@ -69,9 +72,6 @@ include_once ("languages/lang-".$activeLang.".php");
             <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?>?</p>
           </div>
         </div>
-        <!-- <svg class="product-card__star-icon">
-<use xlink:href="images/sprite.svg#icon-rate"></use>
-</svg> -->
         <ul class="socials">
           <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
               target="_blanc">
@@ -99,7 +99,7 @@ include_once ("languages/lang-".$activeLang.".php");
                 <span class="arrow"></span>
               </div>
               <?php 
-                foreach ($LangArray as $lang) {
+                foreach ($langArray as $lang) {
                   if($lang != $activeLang) {?>
                     <div class="langCheck__item langCheck__item-<?= $lang; ?> ">
                       <div class="icon icon-<?= $lang; ?>"></div>
