@@ -1,9 +1,10 @@
 <?php 
 // Массив доступных для выбора языков
-$langArray = array("pt","ru","de","en","br", "fr", 'el');
+$langArray = array("pt","ru","de","en","br", "fr", 'el', 'es', 'fi', 'no');
 // Получаея язык устройста и применяем его на случай если в coockie не прописано
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
+//Проверяем, если был выбран один из этих языков то  показываем/скрываем кнопку вызоова попапа хэдэре
+$langHidePopup = array('es','ru');
 // проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
 if(isset($_GET['lang']) || array_search($_GET['lang'], $langArray)):
   // задаем язык сайту
@@ -21,7 +22,7 @@ else:
   $activeLang = en; 
 endif;
 
-echo $activeLang;
+$hidePopup = array_search($activeLang, $langHidePopup);
 
 include_once ("languages/lang-".$activeLang.".php");
 
@@ -60,16 +61,20 @@ include_once ("languages/lang-".$activeLang.".php");
             </div>
           </div>
         </div>
-        <div class="howreg">
-          <div class="howreg__content" data-modal="popup-modal">
-            <div class="howreg__icon">
-              <svg class="howreg__svg">
-                <use xlink:href="images/sprite.svg#icon-phone"></use>
-              </svg>
-            </div>
-            <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?>?</p>
-          </div>
-        </div>
+            <?php 
+              if(!hidePopup) {?>
+                <div class="howreg">
+                  <div class="howreg__content" data-modal="popup-modal">
+                    <div class="howreg__icon">
+                      <svg class="howreg__svg">
+                        <use xlink:href="images/sprite.svg#icon-phone"></use>
+                      </svg>
+                    </div>
+                    <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?>?</p>
+                  </div>
+                </div>
+              <?php } 
+            ?>
         <ul class="socials">
           <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
               target="_blanc">
@@ -96,6 +101,7 @@ include_once ("languages/lang-".$activeLang.".php");
                 <span class="langContext"><?= $activeLang; ?></span>
                 <span class="arrow"></span>
               </div>
+
               <?php 
                 foreach ($langArray as $lang) {
                   if($lang != $activeLang) {?>
@@ -103,7 +109,7 @@ include_once ("languages/lang-".$activeLang.".php");
                       <div class="icon icon-<?= $lang; ?>"></div>
                         <a href="?lang=<?= $lang; ?>" class="langContext"><?= $lang; ?></a>
                     </div>
-                  <?}
+                  <?php }
                 }
               ?>
             </div>
@@ -122,13 +128,13 @@ include_once ("languages/lang-".$activeLang.".php");
               <div class="page__bonus">
                 <p class="page__appeal"> <?= $local['come_and_spin']?> !</p>
                 <h1 class="page__call"><?= $local['take_bonus']?></h1>
-                <p class="page__big-text"><span><?= $local['']?>до</span> €1500 + 150 fs !</p>
-                <p class="page__descr">vip кешбэк казино <span>до</span> 8%</p>
+                <p class="page__big-text"><span><?= $local['amount_discont1']?></span> <?= $local['amount_discont2']?>!</p>
+                <p class="page__descr"><?= $local['cashback1']?> <span><?= $local['cashback2']?></span> 8%</p>
               </div>
             </div>
             <div class="btn-boxtop"><a class="btn-boxtop__new" id="getTop" href="https://betandyou.com/registration/"
                 target="_blank"><?= $local['get_bonus']; ?></a>
-              <p class="btn-boxtop__rules" id="rulesTop" data-modal="popup-modal">Как зарегистрироваться?</p>
+              <p class="btn-boxtop__rules" id="rulesTop" data-modal="popup-modal"><?= $local['how_register_faq']?></p>
             </div>
           </div>
         </div>
@@ -137,22 +143,29 @@ include_once ("languages/lang-".$activeLang.".php");
             <ul class="instruction__items">
               <li class="instruction__number" id="instructionNumberOne">
                 <div class="instruction__article">
-                  <p class="instruction__action"><span></span>Зарегистрируйся</p>
+                  <p class="instruction__action"><?= $local['instruction1']?></p>
                 </div>
               </li>
               <li class="instruction__number" id="instructionNumberTwo">
                 <div class="instruction__article">
-                  <p class="instruction__action">Пoдтвepди<span>пoчту и нoмep тeлeфoнa</span> </p>
+                  <?php 
+                    if($activeLang === 'de') {?>
+                        <p class="instruction__action">
+                        <span><?= $local['instruction2-1']?></span><?= $local['instruction2']?> </p>
+                    <?php }  else { ?>
+                      <p class="instruction__action"><?= $local['instruction2']?><span><?= $local['instruction2-1']?></span> </p>
+                    <?php }
+                  ?>
                 </div>
               </li>
               <li class="instruction__number" id="instructionNumberThree">
                 <div class="instruction__article">
-                  <p class="instruction__action"> <span>Внеси </span>первый депозит</p>
+                  <p class="instruction__action"> <span><?= $local['instruction3']?></span><?= $local['instruction3-1']?></p>
                 </div>
               </li>
               <li class="instruction__number" id="instructionNumberFour">
                 <div class="instruction__article">
-                  <p class="instruction__action"><span> </span>Получи бонус</span></p>
+                  <p class="instruction__action"><span> </span><?= $local['instruction4']?></span></p>
                 </div>
               </li>
             </ul>
@@ -160,8 +173,8 @@ include_once ("languages/lang-".$activeLang.".php");
         </div>
         <div class="container">
           <div class="btn-box"><a class="btn-box__new" id="get" href="https://betandyou.com/registration/"
-              target="_blank">забрать бонус</a>
-            <p class="btn-box__rules" id="rules" data-modal="popup-modal">правила и условия</p>
+              target="_blank"><?= $local['recive_bonus']?></a>
+            <p class="btn-box__rules" id="rules" data-modal="popup-modal"><?= $local['therms_and_rules']?></p>
           </div>
           <ul class="socials socials--mobile">
             <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
@@ -190,26 +203,36 @@ include_once ("languages/lang-".$activeLang.".php");
         <div class="popup__image"> <img class="popup__img" src="images/pupup__gif.jpg" alt=""></div>
         <ul class="popup__list">
           <li class="popup__number">
-            <p class="popup__text">
-              <span>Вручную</span> введите <span>код</span> вашей страны
+            <?php 
+              if($activeLang === 'pt' || $activeLang === 'de') {?>
 
-            </p>
+                <p class="popup__text">
+                  <?= $local['popup_rule1-1']?>
+                  <span><?= $local['popup_rule1']?></span>  
+                  <span><?= $local['popup_rule1-2']?></span>
+                   <?= $local['popup_rule1-3']?>
+                </p>
+              <?php }  else { ?>
+
+                  <p class="popup__text">
+                  <span><?= $local['popup_rule1']?></span> <?= $local['popup_rule1-1']?> <span><?= $local['popup_rule1-2']?></span> <?= $local['popup_rule1-3']?>
+                </p>
+                
+              <?php }
+            ?>
           </li>
           <li class="popup__number">
             <p class="popup__text">
-              Перейдя в следующее поле, введите <span>номер</span> телефона
-
+              <?= $local['popup_rule2']?> <span><?= $local['popup_rule2-1']?> </span> <?= $local['popup_rule2-2']?>
             </p>
           </li>
           <li class="popup__number">
-            <p class="popup__text">Ваша страна <span>автоматически</span> будет привязана к аккаунту после регистрации.
+            <p class="popup__text"><?= $local['popup_rule3']?> <span><?= $local['popup_rule3-1']?></span> <?= $local['popup_rule3-2']?>.
             </p>
           </li>
         </ul>
-        <div class="popup__button"><a class="popup__btn" href="">
-            регистрируйся
-
-
+        <div class="popup__button"><a class="popup__btn" href="https://betandyou.com/registration/?no_fast_reg=1">
+            <?= $local['popup_button']?>
           </a></div>
       </div>
     </div>

@@ -51,31 +51,37 @@ select {
 }
 
 .page__appeal, .page__big-text, .instruction__action {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito',
+ sans-serif;
   font-weight: 900;
 }
 
 .instruction__action span {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat',
+ sans-serif;
   font-weight: 400;
 }
 
 .btn-boxtop__new, .btn-boxtop__rules, .btn-box__new, .btn-box__rules, .howreg__text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat',
+ sans-serif;
   font-weight: 500;
 }
 
 .popup__btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat',
+ sans-serif;
   font-weight: 700;
 }
 
 body, .page__descr {
-  font-family: 'Betandyou-Main', sans-serif;
+  font-family: 'Betandyou-Main',
+ sans-serif;
 }
 
 .logo__text, .page__call {
-  font-family: 'Betandyou-Main_1', sans-serif;
+  font-family: 'Betandyou-Main_1',
+ sans-serif;
   font-weight: 400;
 }
 
@@ -1431,11 +1437,17 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   -webkit-box-shadow: 0px 9px 6px rgba(0, 0, 0, 0.6), -8.48408px 11.0293px 34.7847px -16.9682px #F6204A;
           box-shadow: 0px 9px 6px rgba(0, 0, 0, 0.6), -8.48408px 11.0293px 34.7847px -16.9682px #F6204A;
   overflow: hidden;
-  -webkit-transition: border-color 0.3s linear, -webkit-box-shadow 0.3s linear;
-  transition: border-color 0.3s linear, -webkit-box-shadow 0.3s linear;
-  -o-transition: border-color 0.3s linear, box-shadow 0.3s linear;
-  transition: border-color 0.3s linear, box-shadow 0.3s linear;
-  transition: border-color 0.3s linear, box-shadow 0.3s linear, -webkit-box-shadow 0.3s linear;
+  -webkit-transition: border-color 0.3s linear,
+ -webkit-box-shadow 0.3s linear;
+  transition: border-color 0.3s linear,
+ -webkit-box-shadow 0.3s linear;
+  -o-transition: border-color 0.3s linear,
+ box-shadow 0.3s linear;
+  transition: border-color 0.3s linear,
+ box-shadow 0.3s linear;
+  transition: border-color 0.3s linear,
+ box-shadow 0.3s linear,
+ -webkit-box-shadow 0.3s linear;
 }
 
 @media (max-width: 768px) {
@@ -1510,9 +1522,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   line-height: 2.5;
   border-radius: 10px;
   border: 2px solid #fff;
-  -webkit-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  -o-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
+  -webkit-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  -o-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
 }
 
 @media (max-width: 768px) {
@@ -1550,9 +1568,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   color: #fff;
   text-decoration: underline;
   text-transform: uppercase;
-  -webkit-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  -o-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
+  -webkit-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  -o-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
   cursor: pointer;
 }
 
@@ -1667,11 +1691,17 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   -webkit-box-shadow: -8.48408px 11.0293px 34.7847px -16.9682px #055AFF, 0px 9px 6px rgba(0, 0, 0, 0.6);
           box-shadow: -8.48408px 11.0293px 34.7847px -16.9682px #055AFF, 0px 9px 6px rgba(0, 0, 0, 0.6);
   overflow: hidden;
-  -webkit-transition: border-color 0.3s linear, -webkit-box-shadow 0.3s linear;
-  transition: border-color 0.3s linear, -webkit-box-shadow 0.3s linear;
-  -o-transition: border-color 0.3s linear, box-shadow 0.3s linear;
-  transition: border-color 0.3s linear, box-shadow 0.3s linear;
-  transition: border-color 0.3s linear, box-shadow 0.3s linear, -webkit-box-shadow 0.3s linear;
+  -webkit-transition: border-color 0.3s linear,
+ -webkit-box-shadow 0.3s linear;
+  transition: border-color 0.3s linear,
+ -webkit-box-shadow 0.3s linear;
+  -o-transition: border-color 0.3s linear,
+ box-shadow 0.3s linear;
+  transition: border-color 0.3s linear,
+ box-shadow 0.3s linear;
+  transition: border-color 0.3s linear,
+ box-shadow 0.3s linear,
+ -webkit-box-shadow 0.3s linear;
 }
 
 @media (max-width: 768px) {
@@ -1746,9 +1776,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   line-height: 2.5;
   border-radius: 10px;
   border: 2px solid #fff;
-  -webkit-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  -o-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
+  -webkit-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  -o-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
 }
 
 @media (max-width: 768px) {
@@ -1787,9 +1823,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   text-decoration: underline;
   text-transform: uppercase;
   cursor: pointer;
-  -webkit-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  -o-transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
-  transition: color 0.3s linear, border-color 0.3s linear, outline-color 0.3s linear;
+  -webkit-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  -o-transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
+  transition: color 0.3s linear,
+ border-color 0.3s linear,
+ outline-color 0.3s linear;
 }
 
 @media (max-width: 576px) {
