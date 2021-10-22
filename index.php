@@ -42,8 +42,6 @@ include_once ("languages/lang-".$activeLang.".php");
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-</html>
-
 <body>
   <header class="header">
     <div class="container">
@@ -122,9 +120,9 @@ include_once ("languages/lang-".$activeLang.".php");
             <div class="page__img-box"><img class="page__img" src="images/items.png"></div>
             <div class="page__top">
               <div class="page__bonus">
-                <p class="page__appeal">Заходи к нам покрутить!</p>
-                <h1 class="page__call">Забери свой приветственный бонус<span></span></h1>
-                <p class="page__big-text"><span>до</span> €1500 + 150 fs !</p>
+                <p class="page__appeal"> <?= $local['come_and_spin']?> !</p>
+                <h1 class="page__call"><?= $local['take_bonus']?></h1>
+                <p class="page__big-text"><span><?= $local['']?>до</span> €1500 + 150 fs !</p>
                 <p class="page__descr">vip кешбэк казино <span>до</span> 8%</p>
               </div>
             </div>
