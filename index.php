@@ -1,20 +1,23 @@
 <?php 
 // Массив доступных для выбора языков
 $LangArray = array("pt","ru","de","en","br", "fr", 'el');
-$lan = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-// echo $lan;
+// Получаея язык устройста и применяем его на случай если в coockie не прописано
+$langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
 // проверяем, если был передан язык в урле, то записываем его в куку
 if(isset($_GET['lang'])){
   // задаем язык сайту
   $activeLang = $_GET['lang'];
   // устанавливаем куку с языком сайта
-  setcookie ("lang_site", $activeLang, time() + 3600*24, "/"); 
+  setcookie ("lang_site", $activeLang, time() + 3600*24*30, "/"); 
 } else if (isset($_COOKIE['lang_site'])){ // проверяем наличие куки, если есть то читаем ее
  // получем язык сайта из куки
   $activeLang = $_COOKIE['lang_site'];
-}else{
+} else if($langDevice) { // если cookie и url пустые - применяем язык устроства
+  $activeLang = $langDevice;
+} else {
   // default значение для языка сайта
-  $activeLang = 'ru'; 
+  $activeLang = 'en'; 
 }
 
 include_once ("languages/lang-".$activeLang.".php");
