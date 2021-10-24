@@ -10,7 +10,7 @@
     "cashback1" => 'VIP кешбек казино',
     "cashback2" => 'до',
     "get_bonus" => 'Получить бонус',
-    "how_register_faq" => 'как зарегистрироваться',
+    "how_register_faq" => '',
     "instruction1" => 'Зарегистрируйся',
     "instruction2" => 'Подтверди',
     "instruction2-1" => 'почту и номер телефона',

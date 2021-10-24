@@ -1,10 +1,11 @@
 <?php 
 // Массив доступных для выбора языков
-$langArray = array("pt","ru","de","en","br", "fr", 'el', 'es', 'fi', 'no');
+$langArray = array("", "pt","ru","de","en","br", "fr", "el","es","fi","no");
 // Получаея язык устройста и применяем его на случай если в coockie не прописано
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 // Массив  языков для отключения кнопки в хєдєре и попапа 
-$langHidePopup = array('es','ru','no' ,'PT-br','fr'); 
+$langHidePopup = array("","es","ru","no","pt","fr","br"); 
+
 // проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
 if(isset($_GET['lang']) && array_search($_GET['lang'], $langArray)):
   // задаем язык сайту
@@ -64,7 +65,7 @@ include_once ("languages/lang-".$activeLang.".php");
         </div>
             <?php 
               if($hidePopup) {?>
-              <span>123</span>
+              <!-- no content -->
               <?php } else { ?>
                 <div class="howreg">
                   <div class="howreg__content" data-modal="popup-modal">
@@ -177,7 +178,7 @@ include_once ("languages/lang-".$activeLang.".php");
         <div class="container">
           <div class="btn-box"><a class="btn-box__new" id="get" href="https://betandyou.com/registration/"
               target="_blank"><?= $local['recive_bonus']?></a>
-            <p class="btn-box__rules" id="rules" data-modal="popup-modal"><?= $local['therms_and_rules']?></p>
+            <a class="btn-box__rules" href="https://betandyou.com/information/rules/" id="rules"><?= $local['therms_and_rules']?></a>
           </div>
           <ul class="socials socials--mobile">
             <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
