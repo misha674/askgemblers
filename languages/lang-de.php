@@ -2,7 +2,7 @@
 <?php
   $local = array(
     "how_reg" => 'Wie registriere',
-    "how_reg_2" => 'ich mich',
+    "how_reg_2" => 'ich mich?',
     "come_and_spin" => 'Komm und dreh mit uns',
     "take_bonus" => 'Nehmen Sie Ihren Willkommensbonus',
     "amount_discont1" => 'bis zu',

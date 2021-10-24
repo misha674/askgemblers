@@ -1,8 +1,8 @@
 
 <?php
   $local = array(
-    "how_reg" => '',
-    "how_reg_2" => '',
+    "how_reg" => 'тут не должно',
+    "how_reg_2" => 'быть текста',
     "come_and_spin" => '¡Venga a girar con nosotros',
     "take_bonus" => 'Llévate tu bono de bienvenida',
     "amount_discont1" => 'hasta',

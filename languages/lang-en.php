@@ -3,7 +3,7 @@
   $local = array(
     "get_bonus" => 'get bonus',
     "how_reg" => 'How to',
-    "how_reg_2" => 'register',
+    "how_reg_2" => 'register?',
     "come_and_spin" => 'Come and spin with us',
     "take_bonus" => 'Take your welcome bonus',
     "amount_discont1" => 'up to',

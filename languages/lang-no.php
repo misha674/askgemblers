@@ -1,8 +1,8 @@
 
 <?php
   $local = array(
-    "how_reg" => '',
-    "how_reg_2" => '',
+    "how_reg" => 'тут не должно',
+    "how_reg_2" => 'быть текста',
     "come_and_spin" => 'Kom og spinn med oss',
     "take_bonus" => 'Ta velkomstbonusen din',
     "amount_discont1" => 'opptil',

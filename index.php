@@ -1,10 +1,10 @@
 <?php 
 // Массив доступных для выбора языков
-$langArray = array("pt","ru","de","en","br", "fr", 'el', 'es', 'fiи', 'no');
+$langArray = array("pt","ru","de","en","br", "fr", 'el', 'es', 'fi', 'no');
 // Получаея язык устройста и применяем его на случай если в coockie не прописано
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-//Проверяем, если был выбран один из этих языков то  показываем/скрываем кнопку вызоова попапа хэдэре
-$langHidePopup = array('es','ru');
+// Массив  языков для отключения кнопки в хєдєре и попапа 
+$langHidePopup = array('es','ru','no' ,'PT-br','fr'); 
 // проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
 if(isset($_GET['lang']) && array_search($_GET['lang'], $langArray)):
   // задаем язык сайту
@@ -22,6 +22,7 @@ else:
   $activeLang = 'en'; 
 endif;
 
+// присваиваю переменной hidePopup ключ первого найденного элемента в случае успешного выполнения ф-и  array_search, которая ищет в langHidePopup значение activeLang.
 $hidePopup = array_search($activeLang, $langHidePopup);
 
 include_once ("languages/lang-".$activeLang.".php");
@@ -62,7 +63,9 @@ include_once ("languages/lang-".$activeLang.".php");
           </div>
         </div>
             <?php 
-              if(!hidePopup) {?>
+              if($hidePopup) {?>
+              <span>123</span>
+              <?php } else { ?>
                 <div class="howreg">
                   <div class="howreg__content" data-modal="popup-modal">
                     <div class="howreg__icon">
@@ -70,10 +73,10 @@ include_once ("languages/lang-".$activeLang.".php");
                         <use xlink:href="images/sprite.svg#icon-phone"></use>
                       </svg>
                     </div>
-                    <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?>?</p>
+                    <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?></p>
                   </div>
                 </div>
-              <?php } 
+              <?php }
             ?>
         <ul class="socials">
           <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
@@ -110,7 +113,7 @@ include_once ("languages/lang-".$activeLang.".php");
                         <a href="?lang=<?= $lang; ?>" class="langContext"><?= $lang; ?></a>
                     </div>
                   <?php }
-                } esle
+                } 
               ?>
             </div>
           </div>
