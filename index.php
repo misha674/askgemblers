@@ -110,7 +110,7 @@ include_once ("languages/lang-".$activeLang.".php");
                         <a href="?lang=<?= $lang; ?>" class="langContext"><?= $lang; ?></a>
                     </div>
                   <?php }
-                }
+                } esle
               ?>
             </div>
           </div>
