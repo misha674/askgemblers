@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -675,67 +676,72 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   display: inline-block;
 }
 
-// HTML
+// HTMLд
 <i class="icon icon-home"></i>
 */
 .icon-pt {
   background-image: url("../images/sprite.png");
-  background-position: -54px -18px;
+  background-position: -0 -36px;
 }
 
 .icon-ru {
   background-image: url("../images/sprite.png");
-  background-position: -54px -36px;
+  background-position: -54px -0;
 }
 
 .icon-br {
-  background-image: url("../images/sprite.png");
-  background-position: -18px 0px;
-}
-
-.icon-en {
-  background-image: url("../images/sprite.png");
-  background-position: 0px -36px;
-}
-
-.icon-es {
-  background-image: url("../images/sprite.png");
-  background-position: 0px -18px;
-}
-
-.icon-fin {
-  background-image: url("../images/sprite.png");
-  background-position: -18px -18px;
-}
-
-.icon-de {
-  background-image: url("../images/sprite.png");
-  background-position: -36px 0px;
-}
-
-.icon-el {
-  background-image: url("../images/sprite.png");
-  background-position: -36px -18px;
-}
-
-.icon-en {
-  background-image: url("../images/sprite.png");
-  background-position: 0px 0px;
-}
-
-.icon-es {
   background-image: url("../images/sprite.png");
   background-position: -18px -36px;
 }
 
 .icon-en {
   background-image: url("../images/sprite.png");
-  background-position: -36px -36px;
+  background-position: -36px -0;
 }
 
-.icon-nor {
+.icon-es {
   background-image: url("../images/sprite.png");
-  background-position: -54px 0px;
+  background-position: -54px -36px;
+}
+
+.icon-fi {
+  background-image: url("../images/sprite.png");
+  background-position: -18px -0;
+}
+
+.icon-de {
+  background-image: url("../images/sprite.png");
+  background-position: -0 -18px;
+}
+
+.icon-el {
+  background-image: url("../images/sprite.png");
+  background-position: -18px -18px;
+}
+
+.icon-fr {
+  background-image: url("../images/sprite.png");
+  background-position: -0 -0;
+}
+
+.icon-es {
+  background-image: url("../images/sprite.png");
+  background-position: -54px -36px;
+}
+
+.icon-en {
+  background-image: url("../images/sprite.png");
+  background-position: -36px -0;
+}
+
+.icon-no {
+  background-image: url("../images/sprite.png");
+  background-position: -36px -18px;
+}
+
+.icon-tr {
+  background-image: url("../images/sprite.png");
+  background-position: -36px -36px;
 }
 
 .header {
@@ -767,6 +773,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+}
+
+.header__left + .socials {
+  margin-left: auto;
 }
 
 .header__box {
@@ -1101,7 +1111,21 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 .page__inner {
   position: relative;
-  padding-top: 3.125vw;
+  padding: 6.125vw 0;
+}
+
+@media (max-width: 1350px) {
+  .page__inner {
+    padding-top: 5.125vw;
+    padding-bottom: 5.125vw;
+  }
+}
+
+@media (max-width: 1124px) {
+  .page__inner {
+    padding-top: 6.125vw;
+    padding-bottom: 6.125vw;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1126,7 +1150,13 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .page__top {
-  padding-bottom: 5vw;
+  padding-bottom: 8vw;
+}
+
+@media (max-width: 1350px) {
+  .page__top {
+    padding-bottom: 5vw;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1195,7 +1225,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .page__big-text {
-  font-size: clamp(40px, 6.5vw, 86px);
+  font-size: clamp(40px, 6.5vw, 78px);
   text-transform: uppercase;
   line-height: 1.16;
   background: -o-linear-gradient(359.4deg, #FFBC00 19.97%, #FFE400 90.72%), -o-linear-gradient(bottom, #FFFFFF, #FFFFFF);
@@ -1545,6 +1575,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .btn-boxtop__rules {
+  position: relative;
+  z-index: 3;
   padding: 2px;
   font-size: clamp(14px, 1.12vw, 19px);
   color: #fff;
@@ -1840,12 +1872,24 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 .instruction {
   position: relative;
   width: 100%;
-  padding: 1.4% 0 1.4%;
+  padding: 3.4% 0 3.4%;
   border-top: 2px solid #F4B401;
   border-bottom: 2px solid #F4B401;
   -webkit-box-shadow: 0px 0px 24px #F4B401;
           box-shadow: 0px 0px 24px #F4B401;
   opacity: 0.98;
+}
+
+@media (max-width: 1350px) {
+  .instruction {
+    padding: 2.4% 0 2.4%;
+  }
+}
+
+@media (max-width: 1124px) {
+  .instruction {
+    padding: 1.4% 0 1.4%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -2081,7 +2125,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 .popup.popup-show {
   display: grid;
   position: fixed;
-  z-index: 11;
+  z-index: 111;
   top: 0;
   left: 0;
   right: 0;
@@ -2092,11 +2136,25 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   position: absolute;
   z-index: 100;
   right: 18px;
-  top: 5px;
+  top: 10px;
   height: 10px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  width: 32px;
+  height: 27px;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+}
+
+.popup__close:hover {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.popup__close:hover .popup__close-btn::before, .popup__close:hover .popup__close-btn::after {
+  opacity: 0.4;
 }
 
 .popup__close-btn {
@@ -2110,9 +2168,13 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   position: absolute;
   left: 15px;
   content: ' ';
-  height: 33px;
-  width: 2px;
-  background-color: #333;
+  height: 26px;
+  width: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
 }
 
 .popup__close-btn:before {
