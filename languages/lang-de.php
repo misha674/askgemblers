@@ -10,7 +10,7 @@
     "cashback1" => 'VIP Casino Cashback',
     "cashback2" => 'bis zu',
     "get_bonus" => 'Bonus erhalten',
-    "how_register_faq" => 'Wie registriere ich mich',
+    "how_register_faq" => 'Wie registriere ich mich?',
     "instruction1" => 'Registrieren',
     "instruction2" => 'bestätigen',
     "instruction2-1" => 'E-Mail und Telefonnummer',

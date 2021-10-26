@@ -1,8 +1,8 @@
 
 <?php
   $local = array(
-    "how_reg" => 'тут не должно',
-    "how_reg_2" => 'быть текста',
+    "how_reg" => 'Kuinka',
+    "how_reg_2" => 'rekisteröityä?',
     "come_and_spin" => 'Kom og spinn med oss',
     "take_bonus" => 'Ta velkomstbonusen din',
     "amount_discont1" => 'opptil',
@@ -10,7 +10,7 @@
     "cashback1" => 'VIP Casino Cashback',
     "cashback2" => 'opptil',
     "get_bonus" => 'Få bonus',
-    "how_register_faq" => '',
+    "how_register_faq" => 'Kuinka rekisteröityä?',
     "instruction1" => 'Registrer',
     "instruction2" => 'Bekreft',
     "instruction2-1" => 'e-post og telefonnummer',
@@ -19,5 +19,16 @@
     "instruction4" => 'Få bonus',
     "recive_bonus" => 'Få bonus',
     "therms_and_rules" => 'Vilkår og betingelser',
+    "popup_rule1" => '',
+    "popup_rule1-1" => 'Syötä maakoodi',
+    "popup_rule1-2" => 'manuaalisesti',
+    "popup_rule1-3" => 'valitsematta luettelosta',
+    "popup_rule2" => 'Siirry seuraavaan kenttään ja syötä',
+    "popup_rule2-1" => 'puhelinnumero',
+    "popup_rule2-2" => '',
+    "popup_rule3" => 'Maasi linkitetään',
+    "popup_rule3-1" => 'automaattisesti ',
+    "popup_rule3-2" => 'tiliisi rekisteröitymisen jälkeen',
+    "popup_button" => 'Rekisteröidy nyt',
   )
 ?>

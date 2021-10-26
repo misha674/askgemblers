@@ -1,7 +1,7 @@
 <?php
   $local = array(
-    "how_reg" => '',
-    "how_reg_2" => '',
+    "how_reg" => 'obter bónus',
+    "how_reg_2" => 'Como',
     "come_and_spin" => 'Venha e gire conosco',
     "take_bonus" => 'Leve seu bônus de boas-vindas',
     "amount_discont1" => 'até',
@@ -9,7 +9,7 @@
     "cashback1" => 'Casino VIP Cashback',
     "cashback2" => 'até',
     "get_bonus" => 'Ganhe Bônus',
-    "how_register_faq" => '',
+    "how_register_faq" => 'Termos e Condições',
     "instruction1" => 'Registrar',
     "instruction2" => 'Confirmar',
     "instruction2-1" => 'e-mail e número de telefone',
@@ -18,5 +18,16 @@
     "instruction4" => 'receber bónus',
     "recive_bonus" => 'obter bónus',
     "therms_and_rules" => 'Termos e Condições',
+    "popup_rule1" => 'manualmente ',
+    "popup_rule1-1" => 'Introduzir',
+    "popup_rule1-2" => 'o código do país',
+    "popup_rule1-3" => 'sem seleccionar a partir da lista',
+    "popup_rule2" => 'Vá para o campo seguinte e introduza o',
+    "popup_rule2-1" => 'número',
+    "popup_rule2-2" => 'de telefone',
+    "popup_rule3" => 'O seu país será',
+    "popup_rule3-1" => 'automaticamente',
+    "popup_rule3-2" => 'ligado à sua conta após o registo',
+    "popup_button" => 'registrar agora',
   )
 ?>

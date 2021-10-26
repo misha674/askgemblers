@@ -1,8 +1,8 @@
 
 <?php
   $local = array(
-    "how_reg" => 'тут не должно',
-    "how_reg_2" => 'быть текста',
+    "how_reg" => '¿Cómo',
+    "how_reg_2" => 'registrarse?',
     "come_and_spin" => '¡Venga a girar con nosotros',
     "take_bonus" => 'Llévate tu bono de bienvenida',
     "amount_discont1" => 'hasta',
@@ -10,7 +10,7 @@
     "cashback1" => '¡Devolución del dinero del casino VIP',
     "cashback2" => 'hasta el',
     "get_bonus" => 'Obtenga el bono',
-    "how_register_faq" => '',
+    "how_register_faq" => '¿Cómo registrarse?',
     "instruction1" => 'Regístrese',
     "instruction2" => 'Confirmar',
     "instruction2-1" => 'el correo electrónico y el número de teléfono',
@@ -19,5 +19,16 @@
     "instruction4" => 'Obtenga el bono',
     "recive_bonus" => 'Obtener bono',
     "therms_and_rules" => 'Términos y condiciones',
+    "popup_rule1" => 'Introducir',
+    "popup_rule1-1" => 'manualmente ',
+    "popup_rule1-2" => 'el código',
+    "popup_rule1-3" => 'de país sin seleccionarlo de la lista.',
+    "popup_rule2" => 'Pase al siguiente campo e introduzca',
+    "popup_rule2-1" => 'el número de teléfono',
+    "popup_rule2-2" => '',
+    "popup_rule3" => 'Tu país se vinculará',
+    "popup_rule3-1" => 'automáticamente ',
+    "popup_rule3-2" => 'a tu cuenta tras el registro',
+    "popup_button" => 'Regístrese ahora',
   )
 ?>

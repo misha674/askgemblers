@@ -2,7 +2,7 @@
 <?php
   $local = array(
     "how_reg" => 'Πώς',
-    "how_reg_2" => 'εγγράφομαι',
+    "how_reg_2" => 'εγγράφομαι?',
     "come_and_spin" => 'Ελάτε να στριφογυρίσετε μαζί μας',
     "take_bonus" => 'Πάρτε το μπόνους καλωσορίσματος',
     "amount_discont1" => 'μέχρι',
@@ -10,7 +10,7 @@
     "cashback1" => 'VIP Casino Cashback',
     "cashback2" => 'έως και',
     "get_bonus" => 'Αποκτήστε μπόνους',
-    "how_register_faq" => 'Πώς εγγράφομαι',
+    "how_register_faq" => 'Πώς εγγράφομαι?',
     "instruction1" => 'Εγγραφή',
     "instruction2" => 'Επιβεβαιώστε ',
     "instruction2-1" => 'το email και τον αριθμό τηλεφώνου',

@@ -10,7 +10,7 @@
     "amount_discont2" => '1500 € + 150 FS',
     "cashback1" => 'vip casino cashback',
     "cashback2" => 'up to',
-    "how_register_faq" => 'how to registrate',
+    "how_register_faq" => 'how to registrate?',
     "instruction1" => 'Register',
     "instruction2" => 'Confirm',
     "instruction2-1" => 'email and phone number',

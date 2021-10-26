@@ -1,7 +1,7 @@
 <?php
   $local = array(
-    "how_reg" => '',
-    "how_reg_2" => '',
+    "how_reg" => 'comment',
+    "how_reg_2" => "s'inscrire?",
     "come_and_spin" => 'Venez jouer avec nous',
     "take_bonus" => 'Prenez votre bonus de bienvenue',
     "amount_discont1" => "jusqu'à ",
@@ -9,7 +9,7 @@
     "cashback1" => "Cashback VIP Casino  8%",
     "cashback2" => "jusqu'à",
     "get_bonus" => 'Obtenir un bonus',
-    "how_register_faq" => '',
+    "how_register_faq" => "Comment puis-je m'inscrire ?",
     "instruction1" => "S'inscrire",
     "instruction2" => 'Confirmer',
     "instruction2-1" => "l'email et le numéro de téléphone",
@@ -18,5 +18,16 @@
     "instruction4" => 'Obtenir un bonus',
     "recive_bonus" => 'Obtenir un bonus',
     "therms_and_rules" => 'Termes et conditions',
+     "popup_rule1" => '',
+    "popup_rule1-1" => 'Saisissez ',
+    "popup_rule1-2" => 'manuellement ',
+    "popup_rule1-3" => 'du pays sans le sélectionner dans une liste.',
+    "popup_rule2" => "Faites défiler jusqu'au champ suivant et entrez votre",
+    "popup_rule2-1" => 'numéro de téléphone',
+    "popup_rule2-2" => '',
+    "popup_rule3" => 'Votre pays sera',
+    "popup_rule3-1" => 'automatiquement',
+    "popup_rule3-2" => "lié à votre compte après l'enregistrement",
+    "popup_button" => 'Enregistrez-vous maintenant',
   )
 ?>

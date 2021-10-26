@@ -2,7 +2,7 @@
 <?php
   $local = array(
     "how_reg" => 'Kuinka',
-    "how_reg_2" => 'rekisteröityä',
+    "how_reg_2" => 'rekisteröityä?',
     "come_and_spin" => 'Tule leikkimään kanssamme!',
     "take_bonus" => 'Lunasta tervetuliaisbonus',
     "amount_discont1" => '',
@@ -10,7 +10,7 @@
     "cashback1" => 'VIP - kasinon käteispalautus',
     "cashback2" => 'jopa',
     "get_bonus" => 'Hanki bonus',
-    "how_register_faq" => '',
+    "how_register_faq" => 'Kuinka rekisteröityä?',
     "instruction1" => 'Rekisteröidy',
     "instruction2" => 'Vahvista',
     "instruction2-1" => 'sähköpostiosoitteesi ja puhelinnumerosi',
@@ -19,5 +19,16 @@
     "instruction4" => 'Hanki bonus',
     "recive_bonus" => 'Lunasta bonus',
     "therms_and_rules" => 'Käyttöehdot',
+    "popup_rule1" => '',
+    "popup_rule1-1" => 'Syötä maakoodi',
+    "popup_rule1-2" => 'manuaalisesti',
+    "popup_rule1-3" => 'valitsematta luettelosta',
+    "popup_rule2" => 'Siirry seuraavaan kenttään ja syötä',
+    "popup_rule2-1" => 'puhelinnumero',
+    "popup_rule2-2" => '',
+    "popup_rule3" => 'Maasi linkitetään',
+    "popup_rule3-1" => 'automaattisesti ',
+    "popup_rule3-2" => 'tiliisi rekisteröitymisen jälkeen',
+    "popup_button" => 'Rekisteröidy nyt',
   )
 ?>

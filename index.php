@@ -4,7 +4,7 @@ $langArray = array("", "pt","ru","de","en","br", "fr", "el","es","fi","no");
 // Получаея язык устройста и применяем его на случай если в coockie не прописано
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 // Массив  языков для отключения кнопки в хєдєре и попапа 
-$langHidePopup = array("","es","ru","no","pt","fr","br"); 
+$langHidePopup = array("","ru","no","br"); 
 
 // проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
 if(isset($_GET['lang']) && array_search($_GET['lang'], $langArray)):
