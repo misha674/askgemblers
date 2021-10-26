@@ -1,71 +1,31 @@
 <?php 
 // Массив доступных для выбора языков
-$langArray = array("el","es","fi","no","fr","de","ru","pt","en");
-
-// Массив регионов для скрытия кнопки в хєдєре и попапа 
-$arrContentVisibility = array("","CA","NZ","BR"); 
-
-// Получаем значение переменной lang из адресной строки
-$langUrl = $_GET['lang'];
-// Получаея язык устройста
+$langArray = array("pt","ru","de","en","br", "fr", 'el', 'es', 'fi', 'no');
+// Получаея язык устройста и применяем его на случай если в coockie не прописано
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-// Массив  языков для отключения кнопки в хєдєре и попапа 
-$langHidePopup = array("","ru","no","br"); 
-
-// Запись в cookie языка
-function set_cookie($lang)
-{
-  setcookie ("lang_site", $lang, time() + 3600*24*30, "/"); 
-}
-
-// проверяем наличие в cookie значения языка и присутствует ли он в массиве возможных языков, если есть то используем ее
-// Значение языка в cookie
-$activeLang = $_COOKIE['lang_site'];
-
-
-// проверяем, если был передан язык в урле и он присутствует в массиве возможных языков но отличает от того что записан в cookie
-// - то применяем его и записываем или перезаписываем cookie
-if($langUrl && ($langUrl != $activeLang) && array_search($langUrl, $langArray)):
+//Проверяем, если был выбран один из этих языков то  показываем/скрываем кнопку вызоова попапа хэдэре
+$langHidePopup = array('es','ru');
+// проверяем, если был передан язык в урле и присутствует ли он в массиве возможных языков, то записываем его в куку
+if(isset($_GET['lang']) || array_search($_GET['lang'], $langArray)):
   // задаем язык сайту
-  $activeLang = $langUrl;
-  // устанавливаем cookie с языком сайта
-  set_cookie($activeLang);
-// если url пуст и язык устройства присутствует в массиве возможных языков но отличает от того что записан в cookie
-// - то применяем язык устроства и записываем или перезаписываем cookie
-elseif(!isset($activeLang) && $langDevice && ($langDevice != $activeLang) &&  array_search($langDevice, $langArray)): 
+  $activeLang = $_GET['lang'];
+  // устанавливаем куку с языком сайта
+  setcookie ("lang_site", $activeLang, time() + 3600*24*30, "/"); 
+// проверяем наличие в cookie значения языка и присутствует ли он в массиве возможных языков, если есть то используем ее
+elseif (isset($_COOKIE['lang_site']) || array_search($_COOKIE['lang_site'], $langArray)): 
+ // получем язык сайта из куки
+  $activeLang = $_COOKIE['lang_site'];
+elseif($langDevice || array_search($langDevice, $langArray)): // если cookie и url пустые - применяем язык устроства
   $activeLang = $langDevice;
-  // устанавливаем cookie с языком сайта
-  set_cookie($activeLang);
-// во всех других случаях 
-elseif(!isset($activeLang)):
+else:
   // default значение для языка сайта
-  $activeLang = 'en'; 
+  $activeLang = en; 
 endif;
 
-// Подлключение файла локализации в зависимости от языка
+$hidePopup = array_search($activeLang, $langHidePopup);
+
 include_once ("languages/lang-".$activeLang.".php");
 
-// Получение IP клиента
-$client  = @$_SERVER['HTTP_CLIENT_IP'];
-$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
-$remote  = @$_SERVER['REMOTE_ADDR'];
-$region  = array('country'=>'', 'city'=>'');
- 
-// Проверка и присвоение IP в зависимости от работы через прокси или на прямую
-if(filter_var($client, FILTER_VALIDATE_IP)) $ip = $client;
-elseif(filter_var($forward, FILTER_VALIDATE_IP)) $ip = $forward;
-else $ip = $remote;
- 
-// Передача ip в плагин для получение региона
-$ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));    
-if($ip_data && $ip_data->geoplugin_countryName != null)
-{
-    $region = $ip_data->geoplugin_countryCode;
-}
-
-// Обработчик отображения контента на сайте в зависимости от региона
-// присваиваю переменной contentVisibility ключ первого найденного элемента в случае успешного выполнения ф-и  array_search, которая ищет в arrContentVisibility значение region.
-$contentVisibility = array_search($region, $arrContentVisibility);
 ?>
 
 <html>
@@ -98,12 +58,11 @@ $contentVisibility = array_search($region, $arrContentVisibility);
             <div class="logo__hand">
               <svg class="logo__hand-icon">
                 <use xlink:href="images/sprite.svg#icon-hand">
-              </svg>
             </div>
           </div>
         </div>
             <?php 
-              if(!$contentVisibility) {?>
+              if(!hidePopup) {?>
                 <div class="howreg">
                   <div class="howreg__content" data-modal="popup-modal">
                     <div class="howreg__icon">
@@ -111,10 +70,10 @@ $contentVisibility = array_search($region, $arrContentVisibility);
                         <use xlink:href="images/sprite.svg#icon-phone"></use>
                       </svg>
                     </div>
-                    <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?></p>
+                    <p class="howreg__text"><span><?= $local['how_reg'] ?></span> <?= $local['how_reg_2'] ?>?</p>
                   </div>
                 </div>
-              <?php }
+              <?php } 
             ?>
         <ul class="socials">
           <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
@@ -146,12 +105,12 @@ $contentVisibility = array_search($region, $arrContentVisibility);
               <?php 
                 foreach ($langArray as $lang) {
                   if($lang != $activeLang) {?>
-                    <a href="?lang=<?= $lang; ?>" class="langCheck__item langCheck__item-<?= $lang; ?> ">
+                    <div class="langCheck__item langCheck__item-<?= $lang; ?> ">
                       <div class="icon icon-<?= $lang; ?>"></div>
-                        <div class="langContext"><?= $lang; ?></div>
-                    </a>
+                        <a href="?lang=<?= $lang; ?>" class="langContext"><?= $lang; ?></a>
+                    </div>
                   <?php }
-                } 
+                }
               ?>
             </div>
           </div>
@@ -173,12 +132,9 @@ $contentVisibility = array_search($region, $arrContentVisibility);
                 <p class="page__descr"><?= $local['cashback1']?> <span><?= $local['cashback2']?></span> 8%</p>
               </div>
             </div>
-            <div class="btn-boxtop">
-              <a class="btn-boxtop__new" id="getTop" href="https://betandyou.com/registration/"
+            <div class="btn-boxtop"><a class="btn-boxtop__new" id="getTop" href="https://betandyou.com/registration/"
                 target="_blank"><?= $local['get_bonus']; ?></a>
-                <?php if(!$contentVisibility) {?>
-                  <p class="btn-boxtop__rules" data-modal="popup-modal"><?= $local['how_register_faq']?></p>
-                <?php } ?>
+              <p class="btn-boxtop__rules" id="rulesTop" data-modal="popup-modal"><?= $local['how_register_faq']?></p>
             </div>
           </div>
         </div>
@@ -218,7 +174,7 @@ $contentVisibility = array_search($region, $arrContentVisibility);
         <div class="container">
           <div class="btn-box"><a class="btn-box__new" id="get" href="https://betandyou.com/registration/"
               target="_blank"><?= $local['recive_bonus']?></a>
-            <a class="btn-box__rules" href="https://betandyou.com/information/rules/" id="rules"><?= $local['therms_and_rules']?></a>
+            <p class="btn-box__rules" id="rules" data-modal="popup-modal"><?= $local['therms_and_rules']?></p>
           </div>
           <ul class="socials socials--mobile">
             <li class="socials__item"> <a class="socials__link" href="https://www.facebook.com/betandyouinfo"
