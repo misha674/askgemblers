@@ -9,6 +9,8 @@ $arrContentVisibility = array("","CA","NZ","BR");
 $langUrl = $_GET['lang'];
 // Получаея язык устройста
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+// Массив  языков для отключения кнопки в хєдєре и попапа 
+$langHidePopup = array("","ru","no","br"); 
 
 // Запись в cookie языка
 function set_cookie($lang)

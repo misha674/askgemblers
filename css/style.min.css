@@ -1250,6 +1250,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   line-height: 1;
   color: #fff;
   font-weight: 400;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #000, 0 0 0.2em #000;
   text-transform: uppercase;
   -webkit-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
