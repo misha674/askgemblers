@@ -3,14 +3,12 @@
 $langArray = array("el","es","fi","no","fr","de","ru","pt","en");
 
 // Массив регионов для скрытия кнопки в хєдєре и попапа 
-$arrContentVisibility = array("","CA","NZ","BR"); 
+$arrContentVisibility = array("CA","NZ","BR"); 
 
 // Получаем значение переменной lang из адресной строки
 $langUrl = $_GET['lang'];
 // Получаея язык устройста
 $langDevice = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-// Массив  языков для отключения кнопки в хєдєре и попапа 
-$langHidePopup = array("","ru","no","br"); 
 
 // Запись в cookie языка
 function set_cookie($lang)
@@ -25,14 +23,14 @@ $activeLang = $_COOKIE['lang_site'];
 
 // проверяем, если был передан язык в урле и он присутствует в массиве возможных языков но отличает от того что записан в cookie
 // - то применяем его и записываем или перезаписываем cookie
-if($langUrl && ($langUrl != $activeLang) && array_search($langUrl, $langArray)):
+if($langUrl && ($langUrl != $activeLang) && in_array($langUrl, $langArray)):
   // задаем язык сайту
   $activeLang = $langUrl;
   // устанавливаем cookie с языком сайта
   set_cookie($activeLang);
 // если url пуст и язык устройства присутствует в массиве возможных языков но отличает от того что записан в cookie
 // - то применяем язык устроства и записываем или перезаписываем cookie
-elseif(!isset($activeLang) && $langDevice && ($langDevice != $activeLang) &&  array_search($langDevice, $langArray)): 
+elseif(!isset($activeLang) && $langDevice && ($langDevice != $activeLang) &&  in_array($langDevice, $langArray)): 
   $activeLang = $langDevice;
   // устанавливаем cookie с языком сайта
   set_cookie($activeLang);
@@ -65,7 +63,7 @@ if($ip_data && $ip_data->geoplugin_countryName != null)
 
 // Обработчик отображения контента на сайте в зависимости от региона
 // присваиваю переменной contentVisibility ключ первого найденного элемента в случае успешного выполнения ф-и  array_search, которая ищет в arrContentVisibility значение region.
-$contentVisibility = array_search($region, $arrContentVisibility);
+$contentVisibility = in_array($region, $arrContentVisibility);
 ?>
 
 <html>
